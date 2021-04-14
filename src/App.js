@@ -6,6 +6,7 @@ import Listing from './Components/Listing'
 import Protected from './Components/Protected'
 import Nav from './Components/Nav'
 import Auth from './Components/Auth'
+import Logout from './Components/Logout'
 import {
   BrowserRouter as Router,
   Switch,
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route path="/">
             <Auth />
+          </Route>
+          <Route path="logout">
+            <Logout />
           </Route>
         </Switch>
       </Router>
