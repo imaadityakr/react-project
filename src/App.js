@@ -2,11 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 import Home from './Components/Home'
 import About from './Components/About'
-import Listing from './Components/Listing'
-import Protected from './Components/Protected'
 import Nav from './Components/Nav'
-import Auth from './Components/Auth'
+import Login from './Components/Login'
 import Logout from './Components/Logout'
+import Registration from './Components/Registration'
+import { PrivateRoute } from './Components/PrivateRoute'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,29 +18,21 @@ import {
 function App() {
   return (
     <div className="App">
-
       <Router>
-        <Nav />
-        <Switch>
-          <Route path="/about">
-            {/* <About /> */}
-            <Protected cmp={About} />
-          </Route>
-          <Route path="/home">
-            {/* <Home /> */}
-            <Protected cmp={Home} />
-          </Route>
-          <Route path="/">
-            <Auth />
-          </Route>
-          <Route path="logout">
-            <Logout />
-          </Route>
-        </Switch>
+          <Nav />
+          <Switch>
+            <PrivateRoute path = "/home" component = {Home} />
+            <PrivateRoute  path = "/about" component = {About} />
+            <Route  path = "/login" component = {Login} />
+            <Route  path = "/registration" component = {Registration} />
+            <PrivateRoute t path = "/logout" component = {Logout} />
+          </Switch>
       </Router>
-
     </div>
   );
 }
 
 export default App;
+
+
+

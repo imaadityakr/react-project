@@ -10,14 +10,22 @@ import {
     render() {
         var auth = JSON.parse(localStorage.getItem('token'))
         return (
-            <div>
-                <Link to="home" >Home</Link>
-                <Link to="about" >About</Link>
+            <div>                
+                    <div>
+                        <Link to="home" >Home</Link>
+                        <Link to="about" >About</Link>
+                    </div>
                 {
-                    auth ?
-                    <Link to="logout" >Logout</Link>
+                    !auth ? 
+                    <div>
+                        <Link to="registration" >Registration</Link>
+                        <Link to="login" >Login</Link> 
+                    </div>
                     :
-                    <Link to="/" >Login</Link>
+                    <div>
+                        <Link to="logout" >Logout</Link>
+                    </div>
+
                 }
 
             </div>
